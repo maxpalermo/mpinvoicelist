@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+	<name>mpInvoiceList</name>
+	<displayName><![CDATA[MP Invoice list display]]></displayName>
+	<version><![CDATA[1.0.0]]></version>
+	<description><![CDATA[This module shows invoice list in Admin Invoices tab]]></description>
+	<author><![CDATA[Digital Solutions®]]></author>
+	<tab><![CDATA[administration]]></tab>
+	<is_configurable>1</is_configurable>
+	<need_instance>1</need_instance>
+</module>
