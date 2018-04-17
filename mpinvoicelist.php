@@ -49,7 +49,10 @@ class MpInvoiceList extends Module
          * Set $this->bootstrap to true if your module is compliant with bootstrap (PrestaShop 1.6)
          */
         $this->bootstrap = true;
-
+        /**
+         * Module key
+         */
+        $this->module_key = 'a36e993c3085a0b8cece2f52460e1f43';
         parent::__construct();
 
         $this->displayName = $this->l('MP Invoice list display');
@@ -111,30 +114,15 @@ class MpInvoiceList extends Module
             $this->context->controller->addJqueryPlugin('validate');
             $list = new MpInvoiceListHelperList($this);
             $content = $list->initList();
-            //print "<pre><xmp>" . $content . "</xmp></pre>";
-            $this->strReplace(
-                '<div class="panel col-lg-12">',
-                '<div class="panel col-lg-12" ' 
-                .'id="invoice_list_panel" '
-                .'style="display: none"'
-                .'>',
-                $content
-            );
-            
+            $this->smarty->assign('helperlist', $content);
             $script = $this->smarty->fetch($this->getPath().'views/templates/admin/invoice_list.tpl');
-            $this->strReplace('</form>', $content."</form>", $script);
             return $script;
         }
     }
     
     public function strReplace($search, $replace, &$subject)
     {
-        $subject = str_replace($search, $replace, $subject); 
+        $subject = str_replace($search, $replace, $subject);
         return $subject;
-    }
-    
-    public function hookDisplayAdminForm()
-    {
-        
     }
 }

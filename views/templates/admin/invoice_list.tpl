@@ -22,14 +22,15 @@
 *  @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 *}
-<form id="invoice_list_form" class="defaultForm form-horizontal AdminInvoices" action="index.php?controller=AdminInvoices&amp;token=5b5b711c5fe139a934a53dee1d2512c1" method="post" enctype="multipart/form-data" novalidate="novalidate">
+<form id="invoice_list_form" style='display:none;' class="defaultForm form-horizontal AdminInvoices" action="index.php?controller=AdminInvoices&amp;token=5b5b711c5fe139a934a53dee1d2512c1" method="post" enctype="multipart/form-data" novalidate="novalidate">
     <input type="hidden" name="submitAddinvoice_list" value="1">
+    {$helperlist}
 </form>
 <script type="text/javascript">
     $(document).ready(function(){
         var form = $('#invoice_list_form').detach();
         $('#invoice_date_form').closest('.row').prepend(form);
-        $('#invoice_list_panel').show();
+        $('#invoice_list_form').show();
         $('#invoice_list_form').validate();
         $('button[name="submitResetconfiguration"]').on('click', function(event){
             //event.preventDefault();

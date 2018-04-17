@@ -59,9 +59,9 @@ class MpInvoiceListHelperList extends HelperListCore
         $this->_default_pagination = Tools::getValue('configuration_pagination', 20);
         $this->show_toolbar = true;
         $this->toolbar_btn = array(
-            'export' => array(
-                'desc' => $this->module->l('Export all', get_class($this)),
-                'href' => $this->context->link->getModuleLink($this->module->name).'&exportAll',
+            '' => array(
+                'desc' => '',
+                'href' => 'javascript:void(0);',
             )
         );
         $this->shopLinkType='';
@@ -280,7 +280,8 @@ class MpInvoiceListHelperList extends HelperListCore
         return $link;
     }
     
-    public function addLink($link, $content) {
+    public function addLink($link, $content)
+    {
         $link = "<a href='$link'>".$content."</a>";
         return $link;
     }
